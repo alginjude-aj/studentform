@@ -1,96 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import './StudentList.css';
-
-// function StudentList() {
-//   const [students, setStudents] = useState([]);
-    
-//   useEffect(() => {
-//     fetchStudents();
-//   }, []);
-
-//   const fetchStudents = () => {
-//     axios.get('http://localhost:3001/students')
-//       .then((response) => {
-//         setStudents(response.data);
-//       })
-//       .catch((error) => {
-//         console.error('Error fetching students:', error);
-//       });
-//   };
-
-//   const handleEdit = (studentId) => {
-//     axios
-//       .put(`http://localhost:3001/api/students/${studentId}`, {
-//         // pass the updated data in the request body
-//         student_name: 'Updated Name',
-//         age: 20,
-//         gender: 'Updated Gender',
-//         score: 90,
-//       })
-//       .then((response) => {
-//         console.log('Student updated:', response.data);
-//         // Refresh the student list after update
-//         fetchStudents();
-//       })
-//       .catch((error) => {
-//         console.error('Error updating student:', error);
-//       });
-//   };
-  
-//   const handleDelete = (studentId) => {
-//     axios
-//       .delete(`http://localhost:3001/students/${studentId}`)
-//       .then((response) => {
-//         console.log('Student deleted:', response.data);
-//         // Refresh the student list after deletion
-//         fetchStudents();
-//       })
-//       .catch((error) => {
-//         console.error('Error deleting student:', error);
-//       });
-//   };
-
-//   return (
-//     <div className='studentContainer'>
-//       <h2>Student List</h2>
-//       <table>
-//         <thead>
-//           <tr>
-//             <th>Student_name</th>
-//             <th>Age</th>
-//             <th>Gender</th>
-//             <th>Score</th>
-            
-//           </tr>
-//         </thead>
-//         <tbody>
-          
-//           {students.map((student) => (
-//             <tr key={student.id}>
-//               <td>{student.student_name}</td>
-//               <td>{student.age}</td>
-//               <td>{student.gender}</td>
-//               <td>{student.score}</td>
-//               <td>
-//                 <button onClick={() => handleEdit(student.id)}>Edit</button>
-//                 <button onClick={() => handleDelete(student.id)}>Delete</button>              
-//                  </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }
-
-// export default StudentList;
-
-
-
-
-
-
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -127,11 +34,13 @@ function StudentList() {
       .delete(`http://localhost:3001/students/${studentId}`)
       .then((response) => {
         console.log('Student deleted:', response.data);
+        alert('Student Data Deleted');
         // Refresh the student list after deletion
         fetchStudents();
       })
       .catch((error) => {
         console.error('Error deleting student:', error);
+        alert('error deleting student data');
       });
   };
 
